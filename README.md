@@ -1,2 +1,2 @@
-Project name: Text Editor
-Description: This is project text editor on Maven
+Project name: Automated testing Web Application
+Description: testing Google+ service
