@@ -1,6 +1,7 @@
 package tests;
 
 import core.steps.Steps;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -9,23 +10,20 @@ import org.junit.Test;
 public class firstTestClass {
 
     private Steps steps;
-    /*@BeforeMethod
+    @Before
     public void setUp() {
         steps = new Steps();
         steps.initBrowser();
-    }*/
+    }
 
-  /*  @Test
+    @Test
     public void createNewEvent() {
-        steps = new Steps();
-        steps.initBrowser();
+        steps.signIn();
         steps.createNewEvent();
-    }*/
+    }
 
     @Test
     public void signInTest() {
-        steps = new Steps();
-        steps.initBrowser();
         steps.signIn();
     }
 }
