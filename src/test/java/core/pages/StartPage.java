@@ -11,8 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 public class StartPage extends AbstractPage {
 
     public final static String PAGE_URL = "https://www.plus.google.com";
-    @FindBy(xpath = ".//*[@id='content']/div[2]/div[2]/div[1]/div/div[7]/a/div[2]")
-    private WebElement eventsButton;
     @FindBy(xpath = ".//*[@id='content']/div[2]/div[2]/div[1]/div/div[6]/a/div[2]")
     private WebElement communitysButton;
     @FindBy(xpath = ".//*[@id='gb_70']")
@@ -31,11 +29,6 @@ public class StartPage extends AbstractPage {
     public void pressSignInButton() {
         signInButton.click();
     }
-
-    public void pressEventsButton() {
-        eventsButton.click();
-    }
-
     public void communitysButton() {
         communitysButton.click();
     }
