@@ -19,7 +19,7 @@ public class StartPage extends AbstractPage {
     private WebElement usernameLabel;
     @FindBy(xpath = ".//*[@id='contentPane']/div/div[3]/div/div[2]/div[2]/div/div[1]/div[1]/div/div/div[1]/div[2]")
     private WebElement postField;
-    @FindBy(xpath = ".//*[@id=':27.f']")
+    @FindBy(xpath = ".//*[@id='contentPane']/div/div[3]/div/div[2]/div[1]/div/div[2]/div[1]/div[7]/div[2]/div[2]/div/div[2]/div[2]")
     private WebElement messageField;
     //
 
