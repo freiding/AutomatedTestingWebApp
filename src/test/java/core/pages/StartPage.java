@@ -15,6 +15,8 @@ public class StartPage extends AbstractPage {
     private WebElement communitysButton;
     @FindBy(xpath = ".//*[@id='gb_70']")
     private WebElement signInButton;
+    @FindBy(xpath = ".//*[@id='gb']/div[1]/div[1]/div[1]/div/span")
+    private WebElement usernameLabel; //.//*[@id='gb']/div[1]/div[1]/div[1]/div/span
 
     public StartPage(WebDriver driver) {
         super(driver);
@@ -31,5 +33,8 @@ public class StartPage extends AbstractPage {
     }
     public void communitysButton() {
         communitysButton.click();
+    }
+    public String getUsername() {
+        return usernameLabel.getText();
     }
 }
