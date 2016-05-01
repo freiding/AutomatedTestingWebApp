@@ -1,6 +1,8 @@
 package tests;
 
 import core.steps.Steps;
+import org.junit.Assert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,14 +18,15 @@ public class firstTestClass {
         steps.initBrowser();
     }
 
-    @Test
-    public void createNewEvent() {
-        steps.signIn();
-        steps.createNewEvent();
+    @After
+    public void endTest() {
+        steps.closeDriver();
     }
 
     @Test
     public void signInTest() {
         steps.signIn();
+        Assert.assertEquals(steps.isLogged(Steps.USERNAME), true);
     }
+
 }
