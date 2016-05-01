@@ -13,11 +13,11 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 
     private WebDriver driver;
-    private final static String email = "user5684931@gmail.com";
-    private final static String password = "password477100321";
+    public final static String EMAIL = "user5684931@gmail.com";
+    public final static String PASSWORD = "password477100321";
+    public final static String USERNAME = "Assistant";
 
-    public void initBrowser()
-    {
+    public void initBrowser() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -30,11 +30,16 @@ public class Steps {
     public void createNewEvent () {
         StartPage startPage = new StartPage(driver);
         startPage.openPage();
-        startPage.pressEventsButton();
     }
+
     public void signIn () {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.openPage();
-        signInPage.signIn(email,password);
+        signInPage.signIn(EMAIL, PASSWORD);
+    }
+
+    public boolean isLogged(String username) {
+        StartPage startPage = new StartPage(driver);
+        return startPage.getUsername().equals(username);
     }
 }
