@@ -11,10 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 public class StartPage extends AbstractPage {
 
     public final static String PAGE_URL = "https://www.plus.google.com";
-    @FindBy(xpath = ".//*[@id='content']/div[2]/div[2]/div[1]/div/div[6]/a/div[2]")
-    private WebElement communitysButton;
-    @FindBy(xpath = ".//*[@id='gb_70']")
-    private WebElement signInButton;
     @FindBy(xpath = ".//*[@id='gb']/div[1]/div[1]/div[1]/div/span")
     private WebElement usernameLabel;
     @FindBy(xpath = ".//*[@id='contentPane']/div/div[3]/div/div[2]/div[2]/div/div[1]/div[1]/div/div/div[1]/div[2]")
@@ -33,13 +29,6 @@ public class StartPage extends AbstractPage {
         driver.navigate().to(PAGE_URL);
     }
 
-    public void pressSignInButton() {
-        signInButton.click();
-    }
-    public void communitysButton() {
-        communitysButton.click();
-    }
-
     public void setMessageFieldText(String message) {
         messageField.sendKeys(message);
     }
@@ -47,6 +36,7 @@ public class StartPage extends AbstractPage {
     public void pressPostField() {
         postField.click();
     }
+
     public String getUsername() {
         return usernameLabel.getText();
     }
