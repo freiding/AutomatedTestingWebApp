@@ -42,4 +42,11 @@ public class Steps {
         StartPage startPage = new StartPage(driver);
         return startPage.getUsername().equals(username);
     }
+
+    public void addPost(String message) {
+        StartPage startPage = new StartPage(driver);
+        startPage.openPage();
+        startPage.pressPostField();
+        startPage.setMessageFieldText(message);
+    }
 }

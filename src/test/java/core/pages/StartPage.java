@@ -16,7 +16,12 @@ public class StartPage extends AbstractPage {
     @FindBy(xpath = ".//*[@id='gb_70']")
     private WebElement signInButton;
     @FindBy(xpath = ".//*[@id='gb']/div[1]/div[1]/div[1]/div/span")
-    private WebElement usernameLabel; //.//*[@id='gb']/div[1]/div[1]/div[1]/div/span
+    private WebElement usernameLabel;
+    @FindBy(xpath = ".//*[@id='contentPane']/div/div[3]/div/div[2]/div[2]/div/div[1]/div[1]/div/div/div[1]/div[2]")
+    private WebElement postField;
+    @FindBy(xpath = ".//*[@id=':27.f']")
+    private WebElement messageField;
+    //
 
     public StartPage(WebDriver driver) {
         super(driver);
@@ -33,6 +38,14 @@ public class StartPage extends AbstractPage {
     }
     public void communitysButton() {
         communitysButton.click();
+    }
+
+    public void setMessageFieldText(String message) {
+        messageField.sendKeys(message);
+    }
+
+    public void pressPostField() {
+        postField.click();
     }
     public String getUsername() {
         return usernameLabel.getText();

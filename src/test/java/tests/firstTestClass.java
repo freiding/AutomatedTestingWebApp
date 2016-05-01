@@ -20,13 +20,22 @@ public class firstTestClass {
 
     @After
     public void endTest() {
-        steps.closeDriver();
+        //steps.closeDriver();
     }
 
+    /*
+    * Completed
+    *
     @Test
     public void signInTest() {
         steps.signIn();
         Assert.assertEquals(steps.isLogged(Steps.USERNAME), true);
+    }
+    */
+    @Test
+    public void addNewPost() {
+        steps.signIn();
+        steps.addPost("My post message text!");
     }
 
 }
