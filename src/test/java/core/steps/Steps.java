@@ -1,5 +1,7 @@
 package core.steps;
 
+import core.objects.Post;
+import core.objects.User;
 import core.pages.SignInPage;
 import core.pages.StartPage;
 import org.openqa.selenium.WebDriver;
@@ -13,9 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 
     private WebDriver driver;
-    public final static String EMAIL = "user5684931@gmail.com";
-    public final static String PASSWORD = "password477100321";
-    public final static String USERNAME = "Assistant";
 
     public void initBrowser() {
         driver = new FirefoxDriver();
@@ -27,26 +26,45 @@ public class Steps {
         driver.quit();
     }
 
-    public void createNewEvent () {
+    public void createNewEvent() {
         StartPage startPage = new StartPage(driver);
         startPage.openPage();
     }
 
-    public void signIn () {
+    public void signIn(User user) {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.openPage();
-        signInPage.signIn(EMAIL, PASSWORD);
+        signInPage.signIn(user);
     }
 
-    public boolean isLogged(String username) {
+    public boolean isLogged(User user) {
         StartPage startPage = new StartPage(driver);
-        return startPage.getUsername().equals(username);
+        return startPage.getUsername().equals(user.getUsername());
     }
 
-    public void addPost(String message) {
+    public void deleteLastPost() {
+        StartPage startPage = new StartPage(driver);
+        startPage.pressPostMenuButton();
+        startPage.pressPostMenuItemDelete();
+    }
+
+    public void addPost(Post post) {
         StartPage startPage = new StartPage(driver);
         startPage.openPage();
         startPage.pressPostField();
-        startPage.setMessageFieldText(message);
+        startPage.setMessageFieldText(post.getText());
+        startPage.pressButtonAddPost();
+        /*
+        * need to add delete the added post, but it is not possible
+        * to access the menu of the post due to the fact that it is hidden
+        */
+    }
+
+    public boolean checkAddedPost(Post post) {
+        StartPage startPage = new StartPage(driver);
+        boolean authorAgreement = startPage.getLastPostAuthor().contains(post.getAuthor().getUsername());
+        boolean textAgreement = startPage.getLastPostText().equals(post.getText());
+        return authorAgreement == textAgreement;
+
     }
 }
