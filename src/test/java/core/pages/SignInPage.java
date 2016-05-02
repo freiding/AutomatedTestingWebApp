@@ -1,5 +1,6 @@
 package core.pages;
 
+import core.objects.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,10 +31,10 @@ public class SignInPage extends AbstractPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public void signIn(String email, String password) {
-        emailTextField.sendKeys(email);
+    public void signIn(User user) {
+        emailTextField.sendKeys(user.getEmail());
         nextButton.click();
-        passwordTextField.sendKeys(password);
+        passwordTextField.sendKeys(user.getPassword());
         signInButton.click();
     }
 }
