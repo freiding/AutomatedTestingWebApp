@@ -54,4 +54,6 @@ public class TestData {
     public static final String NEW_CIRCLE_TITLE = "My followers";
     public static final int CIRCLE_NUMBER = 2;
 
+    public static final String SEARCH_COMMUNITY_TITLE = "Android";
+
 }
