@@ -63,6 +63,7 @@ public class XpathList {
     public static final String COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON = "//span[@guidedhelpid='community_join_button']";
     public static final String COMMUNITIES_PAGE_JOINED_COMMUNITIES = ".//div[@class='k9c mke Pic I8c JUKJAb']";
     public static final String COMMUNITIES_PAGE_JOINED_COMMUNITY_TITLE = "//a[@class='d-s ob w1d ATc']";
+    public static final String COMMUNITIES_PAGE_SEARCH_COMMUNITY_TEXTBOX = ".//div[@class='XYd oTc']/input";
 
     public static final String COMMUNITIY_PAGE_MENU_SETTINGS_BUTTON = ".//div[@class='d-y-r-c-ha fjzDZe']/div";
     public static final String COMMUNITIY_PAGE_MENU_SETTINGS_ITEMS = "//div[@class='d-r d-r-ih']/div";
