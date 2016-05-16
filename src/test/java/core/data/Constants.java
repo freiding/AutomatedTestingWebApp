@@ -13,7 +13,7 @@ public class Constants {
     public static final int TIMEOUT_TITLE_CONTAINS = 15;
     public static final int TIMEOUT_URL_CONTAINS = 15;
     public static final int TIMEOUT_VISIBILITY_OF = 10;
-    public static final int TIMEOUT_INVISIBILITY_OF = 10;
+    public static final int TIMEOUT_INVISIBILITY_OF = 15;
     public static final int TIMEOUT_PAGELOAD = 30;
     public static final int TIMEOUT_IMPLICITY_WAIT = 10;
 
