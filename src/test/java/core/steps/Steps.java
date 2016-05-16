@@ -5,7 +5,6 @@ import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import core.data.TestData;
 import core.objects.GCollection;
 import core.objects.GEvent;
@@ -224,12 +223,13 @@ public class Steps {
         communitiesPage.openPage();
     }
 
-    public String joinToCommunity() {
+    public String joinToCommunity(String title) {
         CommunitiesPage communitiesPage = new CommunitiesPage(driver);
         communitiesPage.init();
-        List<WebElement> communitiesList = communitiesPage.getRecomendedCommunitiesList();
+        communitiesPage.setSearchCommunityText(title);
+        List<WebElement> communitiesList = communitiesPage.getFoundedCommunitiesList();
         String communityTitle = communitiesPage.pressJoinToCommunityButton(communitiesList.get(1));
-        communitiesPage.refreshPage();
+        communitiesPage.openPage();
         return communityTitle;
     }
 
