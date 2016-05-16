@@ -19,7 +19,7 @@ This test is designed to test Sign In function performance
 ***
 
 ## Add contact to circle Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/addContactToCircleAnim.gif)
 
@@ -40,7 +40,7 @@ This test is designed to test Sign In function performance
 ***
 
 ## Add new post Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/addPostAnim.gif)
 
@@ -59,7 +59,7 @@ This test is designed to test Sign In function performance
 ***
 
 ## Add new post to new collection Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/addPostToCollectionAnim.gif)
 
@@ -73,7 +73,7 @@ This test is designed to test Sign In function performance
 ***
 
 ## Create new circle Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/createCircleAnim.gif)
 
@@ -91,63 +91,47 @@ This test is designed to test Sign In function performance
 ***
 
 ## Create new collection Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/createCollectionAnim.gif)
 
 ### Actions
-  - Open SignIn page
-  - Input user email
-  - Click button "Next"
-  - Input user password
-  - Get a username in the upper right corner , and compared with the original
+  - 
  
 ##### Correctness: 100%
 
 ***
 
 ## Create new event Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/createEventAnim.gif)
 
 ### Actions
-  - Open SignIn page
-  - Input user email
-  - Click button "Next"
-  - Input user password
-  - Get a username in the upper right corner , and compared with the original
+  - 
  
 ##### Correctness: 80%
 
 ***
 
 ## Join to community Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/joinToCommunityAnim.gif)
 
 ### Actions
-  - Open SignIn page
-  - Input user email
-  - Click button "Next"
-  - Input user password
-  - Get a username in the upper right corner , and compared with the original
+  - 
  
 ##### Correctness: 60%
 
 ***
 
 ## Search Test
-This test is designed to test Sign In function performance
+Description
 
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/searchAnim.gif)
 
 ### Actions
-  - Open SignIn page
-  - Input user email
-  - Click button "Next"
-  - Input user password
-  - Get a username in the upper right corner , and compared with the original
+  - 
  
 ##### Correctness: 100%
