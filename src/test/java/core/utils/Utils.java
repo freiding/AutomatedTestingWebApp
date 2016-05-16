@@ -51,8 +51,4 @@ public class Utils {
         actions.moveToElement(element).build().perform();
         actions.click().build().perform();
     }
-
-    public static void actionSendEnter(WebDriver driver) {
-        new Actions(driver).sendKeys(Keys.ENTER);
-    }
 }
