@@ -53,7 +53,7 @@ public class MainTestClass {
     }
 
     @Test
-    public void searchPostTest() {
+    public void searchTest() {
         steps.openSearchPage();
         steps.searchPosts(TestData.SEARCH_TEXT);
         Assert.assertEquals(true, steps.isSearchCorrect(TestData.SEARCH_TEXT));
@@ -116,7 +116,7 @@ public class MainTestClass {
     @Test
     public void joinToCommunityTest() {
         steps.openCommunitiesPage();
-        String joinedCommunityTitle = steps.joinToCommunity();
+        String joinedCommunityTitle = steps.joinToCommunity(TestData.SEARCH_COMMUNITY_TITLE);
         boolean actualResult = steps.isJoinedToCommunity(joinedCommunityTitle);
         steps.openJoinedCommunity(joinedCommunityTitle);
         steps.leaveCommunity();
