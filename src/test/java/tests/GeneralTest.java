@@ -16,7 +16,7 @@ import org.junit.Test;
 /**
  * Created by bogat on 29.03.2016.
  */
-public class MainTestClass {
+public class GeneralTest {
 
     private Steps steps;
     private GUser gUser;
