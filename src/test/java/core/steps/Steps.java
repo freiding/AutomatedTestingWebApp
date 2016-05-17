@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 
     private WebDriver driver;
-    WebDriverWait wait;
 
     public void initBrowser() {
         driver = new FirefoxDriver();
