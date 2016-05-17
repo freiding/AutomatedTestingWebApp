@@ -6,7 +6,6 @@ package core.data;
 public class Constants {
 
     public static final int TEXT_FIELD_LENGTH = 20;
-    public static final int MIN_MATHCES_IN_SEARCH = 10;
     public static final int LAST_ITEM_INDEX = -1;
 
     public static final int TIMEOUT_ELEMENT_BE_CLICKABLE = 10;
