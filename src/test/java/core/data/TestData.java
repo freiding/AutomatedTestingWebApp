@@ -18,8 +18,8 @@ public class TestData {
 
     public static final String TEST_USER_EMAIL = "bogatyrev.evgenij@gmail.com";
     public static final String TEST_USER_PASSWORD = "password477100321";
-    public static final String TEST_USER_NAME = "Евгений";
-    public static final String TEST_USER_SURNAME = "Богатырев";
+    public static final String TEST_USER_NAME = "Eugene";
+    public static final String TEST_USER_SURNAME = "Bogatyrev";
 
 
     /**************************************************************************************
@@ -35,7 +35,7 @@ public class TestData {
     public static final Time EVENT_TIME = new Time(23,59);
     public static final String EVENT_LOCATION = "New York";
     public static final String EVENT_DESCRIPTION = "New Year in New York";
-    public static final String EVENT_FOR_WHOM = new String("Мои круги");
+    public static final String EVENT_FOR_WHOM = new String("Yor circles");
 
     /**************************************************************************************
      **                           GCollection data                                       **
