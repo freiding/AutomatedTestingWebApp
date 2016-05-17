@@ -37,4 +37,6 @@ public class Constants {
     public static final String ALIAS_MENU_ITEM_DELETE = "DELETE";
     public static final String ALIAS_MENU_ITEM_LEAVE = "LEAVE";
 
+    public static final String BUTTON_VIEW_COMMUNITY = "View";
+
 }
