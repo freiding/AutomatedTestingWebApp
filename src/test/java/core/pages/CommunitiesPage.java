@@ -87,7 +87,7 @@ public class CommunitiesPage extends AbstractPage {
         WebElement joinButton = community.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON));
         joinButton.click();
         (new WebDriverWait(driver, Constants.TIMEOUT_ELEMENT_BE_CLICKABLE))
-                .until(ExpectedConditions.textToBe(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON), "Взглянуть"));
+                .until(ExpectedConditions.textToBe(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON), Constants.BUTTON_VIEW_COMMUNITY));
         return communityTitle;
     }
 
