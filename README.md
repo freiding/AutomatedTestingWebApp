@@ -12,7 +12,7 @@ This test is designed to test Sign In function performance
   - Input user email
   - Click button "Next"
   - Input user password
-  - Get a username in the upper right corner , and equals with the original
+  - Get a username per page, and equals with the original
  
 ##### Correctness: 100%
 
@@ -33,7 +33,9 @@ Description
   - Click on button "Save"
   - Get cirrent number of contacts in selected circle
   - Сheck that there are more than 0
-  - DeleteContact()
+  - Get contacts list
+  - Find contact with original name
+  - On founded contact click on button "Delete"
  
 ##### Correctness: 100%
 
@@ -82,9 +84,13 @@ Description
   - Open circles page
   - Click on circle "Create new circle"
   - Input new circle title in textField "Circle title" on opened frame
-  - Click on button create
+  - Click on button "Create empty circle"
   - Equals original title with last circle
-  - DeleteLastCircle()
+  - Get circles list
+  - Get last item in list
+  - Click on this cirlce
+  - Click on button "Delete cirle"
+  - In opened frame click on checbox "Confirm" and click on button "Delete this cirlce"
  
 ##### Correctness: 90%
 
@@ -96,7 +102,17 @@ Description
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/createCollectionAnim.gif)
 
 ### Actions
-  - 
+  - SignIn()
+  - Open collections page
+  - Click on button "Create collection"
+  - In opened frame set title and description of collection
+  - Click on button "Create"
+  - Opens page created collection
+  - Get collection title, description and author per page
+  - Equals got data with original
+  - Click on button collection menu
+  - Click on menu item Delete
+  - In opened frame click on button "Delete"
  
 ##### Correctness: 100%
 
@@ -108,7 +124,17 @@ Description
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/createEventAnim.gif)
 
 ### Actions
-  - 
+  - SignIn()
+  - Open events page
+  - Click on button "Create event"
+  - In frame that opens fill field title, date, time, for whom
+  - Click on button "Invite"
+  - Opens page created event
+  - Get title and author text per page
+  - Equlas got data with original
+  - Click on button event menu
+  - Click on menu item "Delete this event"
+  - In opened frame click on button "Delete"
  
 ##### Correctness: 80%
 
@@ -120,7 +146,20 @@ Description
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/joinToCommunityAnim.gif)
 
 ### Actions
-  - 
+  - SignIn()
+  - Open communities page
+  - Input text in search community textField and press key "Enter"
+  - Get list founded communities
+  - Take first community from list
+  - Scroll to this community
+  - Click on button "Join" and save joined community title
+  - Open communities page 
+  - Get list joined communities
+  - Equals saved community title with titles got joined communities
+  - Open community page with saved title
+  - Click on community menu button
+  - Click on menu item "Leave this community" 
+  - In opened frame click on button "Leave"
  
 ##### Correctness: 60%
 
@@ -132,6 +171,10 @@ Description
 ![alt tag](https://github.com/freiding/AutomatedTestingWebApp/blob/master/animations/searchAnim.gif)
 
 ### Actions
-  - 
+  - SignIn()
+  - Open search page
+  - Input text in search field and press key "Enter"
+  - Get search title
+  - Equals got title with original
  
 ##### Correctness: 100%
