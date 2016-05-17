@@ -6,6 +6,8 @@
     <groupId>com.epam.testingpo</groupId>
     <artifactId>aitomated-testing</artifactId>
     <version>1.0</version>
+    <name>Maven Quick Start Archetype</name>
+    <url>http://maven.apache.org</url>
     <build>
         <plugins>
             <plugin>
