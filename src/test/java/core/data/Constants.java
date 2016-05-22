@@ -8,13 +8,13 @@ public class Constants {
     public static final int TEXT_FIELD_LENGTH = 20;
     public static final int LAST_ITEM_INDEX = -1;
 
-    public static final int TIMEOUT_ELEMENT_BE_CLICKABLE = 10;
-    public static final int TIMEOUT_TITLE_CONTAINS = 15;
-    public static final int TIMEOUT_URL_CONTAINS = 15;
-    public static final int TIMEOUT_VISIBILITY_OF = 10;
-    public static final int TIMEOUT_INVISIBILITY_OF = 15;
-    public static final int TIMEOUT_PAGELOAD = 30;
-    public static final int TIMEOUT_IMPLICITY_WAIT = 10;
+    public static final int TIMEOUT_ELEMENT_BE_CLICKABLE = 20;
+    public static final int TIMEOUT_TITLE_CONTAINS = 30;
+    public static final int TIMEOUT_URL_CONTAINS = 30;
+    public static final int TIMEOUT_VISIBILITY_OF = 20;
+    public static final int TIMEOUT_INVISIBILITY_OF = 30;
+    public static final int TIMEOUT_PAGELOAD = 60;
+    public static final int TIMEOUT_IMPLICITY_WAIT = 20;
 
 
     public static final String EMPTY_STRING = "";
