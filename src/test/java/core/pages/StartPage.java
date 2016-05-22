@@ -1,7 +1,6 @@
 package core.pages;
 
 import core.data.Constants;
-import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -21,17 +20,17 @@ import java.util.List;
 public class StartPage extends AbstractPage {
 
     public final static String PAGE_URL = "https://www.plus.google.com";
-    @FindBy(xpath = XpathList.START_PAGE_USERNAME_LABEL)
+    @FindBy(xpath = ".//span[@class='gb_P gb_R']")
     private WebElement usernameLabel;
-    @FindBy(xpath = XpathList.START_PAGE_POST_TEXT_AREA)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebox_textarea']")
     private WebElement postTextArea;
-    @FindBy(xpath = XpathList.START_PAGE_POST_MESSAGE_TEXT_FIELD)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebox_editor']//div[@role='textbox']")
     private WebElement messageField;
-    @FindBy(xpath = XpathList.START_PAGE_DIALOG_POST_ADD_BUTTON)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebutton']")
     private WebElement buttonAddPost;
-    @FindBy(xpath = XpathList.START_PAGE_LASTPOST_TEXT_LABEL)
+    @FindBy(xpath = ".//div[@class='ki ve']//div[@class='Ct']")
     private WebElement lastPostText;
-    @FindBy(xpath = XpathList.START_PAGE_LASTPOST_AUTHOR_LABEL)
+    @FindBy(xpath = ".//div[@class='ki ve']//a[@class='ob tv Ub Hf']")
     private WebElement lastPostAuthor;
 
     private enum postMenu {
@@ -96,19 +95,11 @@ public class StartPage extends AbstractPage {
 
     public void pressButtonAddPost() {
         buttonAddPost.click();
-        Utils.waitInisibilityElement(driver, By.xpath(XpathList.START_PAGE_DIALOG_POST_ADD_BUTTON));
-    }
-
-    public void pressPostMenuButton() {
-        Actions actions = new Actions(driver);
-        WebElement menu = driver.findElement(By.xpath(XpathList.START_PAGE_LASTPOST_MENU_BUTTON));
-        Utils.waitVisibilityElement(driver, menu);
-        menu.click();
-        Utils.waitVisibilityElement(driver, By.xpath("//div[@class='YH WD d-r']"));
+        Utils.waitInisibilityElement(driver, By.xpath(".//div[@guidedhelpid='sharebutton']"));
     }
 
     public void pressPostMenuItem(String item) {
-        List<WebElement> menuItemsList = driver.findElements(By.xpath(XpathList.START_PAGE_POST_MENU_ITEMS));
+        List<WebElement> menuItemsList = driver.findElements(By.xpath(".//div[@class='YH WD d-r']//div[@role='menuitem']"));
         WebElement menuItem = menuItemsList.get(0);
         postMenu menu = postMenu.valueOf(item);
         switch (menu) {
@@ -144,12 +135,6 @@ public class StartPage extends AbstractPage {
         Actions actions = new Actions(driver);
         actions.moveToElement(menuItem).build().perform();
         actions.sendKeys(Keys.ENTER).click().build().perform();
-    }
-
-    public void pressConfirmDeletePost() {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath(XpathList.START_PAGE_CONFIRM_DIALOG_DELETE_BUTTON))).build().perform();
-        actions.sendKeys(Keys.ENTER);
     }
 }
 

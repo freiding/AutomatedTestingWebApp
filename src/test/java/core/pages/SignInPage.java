@@ -1,6 +1,5 @@
 package core.pages;
 
-import core.data.XpathList;
 import core.objects.GUser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,13 +12,13 @@ import org.openqa.selenium.support.PageFactory;
 public class SignInPage extends AbstractPage {
 
     public final static String PAGE_URL = "https://accounts.google.com/ServiceLogin#identifier";
-    @FindBy(xpath = XpathList.SIGN_IN_PAGE_EMAIL_TEXTFIELD)
+    @FindBy(xpath = ".//*[@id='Email']")
     private WebElement emailTextField;
-    @FindBy(xpath = XpathList.SIGN_IN_PAGE_PASSWORD_TEXTFIELD)
+    @FindBy(xpath = ".//*[@id='Passwd']")
     private WebElement passwordTextField;
-    @FindBy(xpath = XpathList.SIGN_IN_PAGE_NEXT_BUTTON)
+    @FindBy(xpath = ".//*[@id='next']")
     private WebElement nextButton;
-    @FindBy(xpath = XpathList.SIGN_IN_PAGE_SIGNIN_BUTTON)
+    @FindBy(xpath = ".//*[@id='signIn']")
     private WebElement signInButton;
 
     public SignInPage(WebDriver driver) {

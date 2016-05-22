@@ -1,6 +1,5 @@
 package core.pages;
 
-import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -15,13 +14,13 @@ import java.util.List;
 public class EventPage extends AbstractPage {
 
     private String PAGE_URL;
-    @FindBy(xpath = XpathList.EVENT_PAGE_EVENT_TITLE)
+    @FindBy(xpath = ".//div[@role='article']//div[@class='jba']")
     private WebElement eventTitle;
-    @FindBy(xpath = XpathList.EVENT_PAGE_EVENT_AUTHOR)
+    @FindBy(xpath = ".//a[@class='d-s ob Xi d-k-l']")
     private WebElement organizer;
-    @FindBy(xpath = XpathList.EVENT_PAGE_EVENT_MENU_BUTTON)
+    @FindBy(xpath = ".//div[@class='Ee fP Ue eZ']//div[@role='button']")
     private WebElement eventMenuButton;
-    @FindBy(xpath = XpathList.EVENT_PAGE_EVENT_DIALOG_DELETE_BUTTON)
+    @FindBy(xpath = ".//button[text()='Delete event']")
     private WebElement confirmDeleteEventButton;
 
     private enum eventMenu {
@@ -63,7 +62,7 @@ public class EventPage extends AbstractPage {
     }
 
     public List<WebElement> getMenuItemsList() {
-        return driver.findElements(By.xpath(XpathList.EVENT_PAGE_EVENT_MENU_ITEMS));
+        return driver.findElements(By.xpath(".//div[@role='menu']//div[@role='menuitem']"));
     }
 
     /*************************************************************************************

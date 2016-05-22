@@ -1,6 +1,5 @@
 package core.pages;
 
-import core.data.XpathList;
 import core.objects.GPost;
 import core.objects.GUser;
 import core.data.Constants;
@@ -23,11 +22,11 @@ public class SearchPage extends AbstractPage {
 
     public static final String PAGE_URL = "https://plus.google.com/s/";
 
-    @FindBy(xpath = XpathList.SEARCH_PAGE_SEARCH_TEXTFIELD)
+    @FindBy(xpath = ".//input[@aria-label='Search Google+']")
     private WebElement searchInputField;
-    @FindBy(xpath = XpathList.SEARCH_PAGE_SEARCH_BUTTON)
+    @FindBy(xpath = ".//button[@aria-label='Google Search']")
     private WebElement searchButton;
-    @FindBy(xpath = XpathList.SEARCH_PAGE_SEARCH_TITLE)
+    @FindBy(xpath = ".//div[@guidedhelpid='search_header']//div[@class='Wzc ACd']")
     private WebElement searchTitle;
 
 

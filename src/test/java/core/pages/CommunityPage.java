@@ -1,6 +1,6 @@
 package core.pages;
 
-import core.data.XpathList;
+import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -46,36 +46,38 @@ public class CommunityPage extends AbstractPage {
      *************************************************************************************/
 
     public void pressMenuSettingsButton() {
-        driver.findElement(By.xpath(XpathList.COMMUNITIY_PAGE_MENU_SETTINGS_BUTTON)).click();
+        WebElement menuButton = driver.findElement(By.xpath(".//div[@class='d-y-r-c-ha fjzDZe']//div[@class='RY']"));
+        menuButton.click();
     }
 
     public void pressMenuSettingsItem(String menuItem) {
-        List<WebElement> menuSettingsItems = driver.findElements(By.xpath(XpathList.COMMUNITIY_PAGE_MENU_SETTINGS_ITEMS));
         communityMenu menu = communityMenu.valueOf(menuItem);
-        WebElement selectedMenuItem = menuSettingsItems.get(0);
+        Utils.waitVisibilityElement(driver, By.xpath(".//div[@class='d-r d-r-ih']//div[@role='menuitem']"));
+        List<WebElement> communityMenuItems = driver.findElements(By.xpath(".//div[@class='d-r d-r-ih']//div[@role='menuitem']"));
+        WebElement selectedMenuItem = communityMenuItems.get(0);
         switch (menu) {
             case INVITE: {
-                selectedMenuItem = menuSettingsItems.get(0);
+                selectedMenuItem = communityMenuItems.get(0);
                 break;
             }
             case SHARE: {
-                selectedMenuItem = menuSettingsItems.get(1);
+                selectedMenuItem = communityMenuItems.get(1);
                 break;
             }
             case LEAVE: {
-                selectedMenuItem = menuSettingsItems.get(2);
+                selectedMenuItem = communityMenuItems.get(2);
                 break;
             }
             case REPORT: {
-                selectedMenuItem = menuSettingsItems.get(3);
+                selectedMenuItem = communityMenuItems.get(3);
                 break;
             }
             case DISPLAY_POSTS: {
-                selectedMenuItem = menuSettingsItems.get(4);
+                selectedMenuItem = communityMenuItems.get(4);
                 break;
             }
             case MORE: {
-                selectedMenuItem = menuSettingsItems.get(5);
+                selectedMenuItem = communityMenuItems.get(5);
                 break;
             }
         }
@@ -85,6 +87,7 @@ public class CommunityPage extends AbstractPage {
     }
 
     public void pressConfirmLeaveButton() {
-        driver.findElement(By.xpath(XpathList.COMMUNITIY_PAGE_CONFIRM_LEAVE_FRAME_LEAVE_BUTTON)).click();
+        Utils.waitVisibilityElement(driver, By.xpath(".//button[text()='Leave community']"));
+        driver.findElement(By.xpath(".//button[text()='Leave community']")).click();
     }
 }

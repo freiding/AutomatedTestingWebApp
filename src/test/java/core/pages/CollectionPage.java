@@ -1,6 +1,5 @@
 package core.pages;
 
-import core.data.XpathList;
 import core.objects.GPost;
 import core.objects.GUser;
 import core.data.Constants;
@@ -20,29 +19,25 @@ import java.util.List;
 public class CollectionPage extends AbstractPage {
 
     private String PAGE_URL;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_TITLE_LABEL)
+    @FindBy(xpath = ".//span[@itemprop='name']")
     private WebElement collectionTitle;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_AUTHOR_LABEL)
+    @FindBy(xpath = ".//a[@rel='author']")
     private WebElement collectionAuthor;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_DESCRIPTION_LABEL)
+    @FindBy(xpath = ".//div[@class='FkKHNb']")
     private WebElement collectionDescription;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_ACTIONS_MENU_BUTTON)
+    @FindBy(xpath = ".//div[@aria-label='Collection settings']")
     private WebElement menuActionsWithCollection;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_DELETE_DIALOG_CONFIRM_CHECKBOX)
+    @FindBy(xpath = ".//div[@class='WuGs8d']//div[@role='checkbox']")
     private WebElement deleteConfirmationCheckBox;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_DELETE_DIALOG_DELETE_BUTTON)
+    @FindBy(xpath = ".//div[text()='Delete']")
     private WebElement deleteCollectionDialogButton;
 
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_POST_TEXTAREA)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebox_textarea']")
     private WebElement postTextArea;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_POST_DIALOG_TEXTAREA)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebox_editor']//div[@role='textbox']")
     private WebElement dialogPostTextArea;
-    @FindBy(xpath = XpathList.COLLECTION_PAGE_COLLECTION_POST_DIALOG_SHARED_BUTTON)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebutton']")
     private WebElement dialogSharedPostButton;
-
-    private String xpathCollectionPosts = XpathList.COLLECTION_PAGE_COLLECTION_POSTS;
-    private String xpathPostAuthor = XpathList.COLLECTION_PAGE_COLLECTION_POST_AUTHOR_LABEL;
-    private String xpathPostText = XpathList.COLLECTION_PAGE_COLLECTION_POST_TEXT_LABEL;
 
     private enum collectionMenu {
         RENAME,
@@ -81,7 +76,7 @@ public class CollectionPage extends AbstractPage {
     }
 
     public List<WebElement> getMenuItemsList() {
-        return driver.findElements(By.xpath(XpathList.MENU_ITEMS));
+        return driver.findElements(By.xpath(".//div[@role='menu']//div[@role='menuitem']"));
     }
 
     public String getPAGE_URL() {
@@ -89,9 +84,9 @@ public class CollectionPage extends AbstractPage {
     }
 
     public GPost getLastCollecionPost() {
-        WebElement lastPost = driver.findElements(By.xpath(xpathCollectionPosts)).get(0);
-        String[] postAuthor = lastPost.findElement(By.xpath(xpathPostAuthor)).getText().split(Constants.WORDS_SEPARATOR);
-        String postText = lastPost.findElement(By.xpath(xpathPostText)).getText();
+        WebElement lastPost = driver.findElements(By.xpath(".//div[@role='article']//div[@class='ki ve']")).get(0);
+        String[] postAuthor = lastPost.findElement(By.xpath("//a[@class='ob tv Ub Hf']")).getText().split(Constants.WORDS_SEPARATOR);
+        String postText = lastPost.findElement(By.xpath("//div[@class='Al pf']//div[@class='Ct']")).getText();
         GUser author = new GUser();
         author.setName(postAuthor[0]);
         author.setSurname(postAuthor[1]);

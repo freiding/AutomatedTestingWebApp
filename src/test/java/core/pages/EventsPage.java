@@ -1,7 +1,6 @@
 package core.pages;
 
 import core.data.Constants;
-import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,23 +17,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class EventsPage extends AbstractPage {
 
     public static final String PAGE_URL = "https://plus.google.com/events";
-    @FindBy(xpath = XpathList.EVENTS_PAGE_CREATE_EVENT_BUTTON)
+    @FindBy(xpath = ".//div[@guidedhelpid='events_create_event_button']")
     private WebElement createEventButton;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_TITLE_TEXTFIELD)
+    @FindBy(xpath = ".//input[@label='Event title']")
     private WebElement eventTitleInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_DATE_TEXTFIELD)
+    @FindBy(xpath = ".//input[@class='o-E-N TJ Pma']")
     private WebElement eventDateInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_TIME_TEXTFIELD)
+    @FindBy(xpath = ".//input[@class='o-E-N TJ dEa']")
     private WebElement eventTimeInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_LOCATION_TEXTFIELD)
+    @FindBy(xpath = ".//input[@label='Location (optional)']")
     private WebElement eventLocationInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_DESCRIPTION_TEXTFIELD)
+    @FindBy(xpath = ".//div[@class='o-E-N Lea']//div[@role='textbox']")
     private WebElement eventDescriptionInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_FOR_WHOM_TEXTFIELD)
+    @FindBy(xpath = ".//input[@aria-label='Invite names, circles, or email addresses']")
     private WebElement eventForWhomInput;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_FOR_FOLLOWINGS)
-    private WebElement eventForFollowings;
-    @FindBy(xpath = XpathList.EVENTS_PAGE_DIALOG_EVENT_INVITE_BUTTON)
+    @FindBy(xpath = ".//div[@guidedhelpid='sharebutton']")
     private WebElement eventInviteButton;
 
     public EventsPage(WebDriver driver) {

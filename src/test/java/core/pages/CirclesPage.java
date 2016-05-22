@@ -1,13 +1,11 @@
 package core.pages;
 
 import core.data.Constants;
-import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -39,10 +37,10 @@ public class CirclesPage extends AbstractPage {
      *************************************************************************************/
 
     public List<WebElement> getCirclesList() {
-        return driver.findElements(By.xpath(XpathList.CIRCLES_PAGE_CIRCLES));
+        return driver.findElements(By.xpath(".//div[@class='XCd']"));
     }
     public List<WebElement> getCirclesTitlesList() {
-        return driver.findElements(By.xpath(XpathList.CIRCLES_PAGE_CIRCLES_TITLE));
+        return driver.findElements(By.xpath(".//div[@class='XCd']//span[@class='xMa uQa']"));
     }
 
     public String getCircleText(int circleID) {
@@ -56,7 +54,7 @@ public class CirclesPage extends AbstractPage {
     }
 
     public List<WebElement> getContactsList() {
-        return driver.findElements(By.xpath(XpathList.CIRCLES_PAGE_CONTACT));
+        return driver.findElements(By.xpath(".//div[@role='link']"));
     }
 
     public int getNumberContactsInCircle(int circleID) {
@@ -65,7 +63,7 @@ public class CirclesPage extends AbstractPage {
         }
         return Integer.valueOf(getCirclesList()
                 .get(circleID).
-                findElement(By.xpath(XpathList.CIRCLES_PAGE_CIRCLE_CONTACTS_COUNTER))
+                findElement(By.xpath(".//div[@class='uBc']"))
                 .getText());
     }
 
@@ -74,13 +72,12 @@ public class CirclesPage extends AbstractPage {
      *************************************************************************************/
 
     public void setContactSearchText(String username) {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_ALLERT_DIALOG_INPUT))
+        driver.findElement(By.xpath(".//input[@class='fH r6a']"))
                 .sendKeys(username + Keys.ENTER);
     }
 
     public void setCircleTitle(String title) {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CREATE_CIRCLE))
-                .findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CREATE_CIRCLE_TITLE_TEXTBOX))
+        driver.findElement(By.xpath(".//div[@class='G-q o-LX-XUa oKb']//input[@class='t-xl-vc-oa t-xl-vc qKb']"))
                 .sendKeys(title);
     }
 
@@ -89,18 +86,17 @@ public class CirclesPage extends AbstractPage {
      *************************************************************************************/
 
     public void pressCreateEmptyCircleButton() {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CREATE_CIRCLE))
-                .findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CREATE_CIRCLE_CREATE_BUTTON))
+        driver.findElement(By.xpath(".//div[@class='G-q o-LX-XUa oKb']//button[@name='save']"))
                 .click();
-        Utils.waitInisibilityElement(driver, By.xpath(XpathList.CIRCLES_PAGE_FRAME_CREATE_CIRCLE_CREATE_BUTTON));
+        Utils.waitInisibilityElement(driver, By.xpath(".//div[@class='G-q o-LX-XUa oKb']//button[@name='save']"));
     }
 
     public void pressNewCircleButton() {
-        Utils.actionClickByElement(driver, driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_NEW_CIRCLE_BUTTON)));
+        Utils.actionClickByElement(driver, driver.findElement(By.xpath(".//div[@guidedhelpid='newcirclecircle']")));
     }
 
     public void pressDeleteCircleButton() {
-        Utils.actionClickByElement(driver, driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_CIRCLE_DELETE_BUTTON)));
+        Utils.actionClickByElement(driver, driver.findElement(By.xpath(".//div[@class='Rna d-k-l oBb Rna']")));
     }
 
     public void pressOnCircle(int circleNumber) {
@@ -113,29 +109,29 @@ public class CirclesPage extends AbstractPage {
     }
 
     public void pressConfirmDeleteCircleButton() {
-        Utils.waitVisibilityElement(driver, driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CONFIRM_DELETE_CIRCLE)));
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_FRAME_CONFIRM_DELETE_CIRCLE_DELETE_BUTTON))
+        Utils.waitVisibilityElement(driver, driver.findElement(By.xpath(".//div[@class='G-q']")));
+        driver.findElement(By.xpath(".//button[@name='ok']"))
                 .click();
     }
 
     public void pressAddContactButton() {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_ADD_CONTACT_BUTTON))
+        driver.findElement(By.xpath(".//div[text()='Add a person']"))
                 .click();
     }
 
     public void pressSaveContactAddingButton() {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_ALLERT_DIALOG_SAVE_BUTTON))
+        driver.findElement(By.xpath(".//div[@class='HQ m6a']//div[text()='Save']"))
                 .click();
-        Utils.waitVisibilityElement(driver, By.xpath(XpathList.CIRCLES_PAGE_CONTACT));
+        Utils.waitVisibilityElement(driver, By.xpath(".//div[@role='link']"));
     }
 
     public void pressRemoveContactButton() {
-        driver.findElement(By.xpath(XpathList.CIRCLES_PAGE_CONTACT_DELETE_BUTTON)).click();
-        Utils.waitInisibilityElement(driver, By.xpath(XpathList.CIRCLES_PAGE_CONTACT_DELETE_BUTTON));
+        driver.findElement(By.xpath(".//div[@class='bxa snb-u']")).click();
+        Utils.waitInisibilityElement(driver, By.xpath(".//div[@class='bxa snb-u']"));
     }
 
     public void selectCircleToAdd(int circleID) {
-        driver.findElements(By.xpath(XpathList.CIRCLES_PAGE_ALLERT_DIALOG_CIRCLES_LIST))
+        driver.findElements(By.xpath(".//div[@guidedhelpid='circlelist']//div[@class='bA kt']"))
                 .get(circleID)
                 .click();
     }

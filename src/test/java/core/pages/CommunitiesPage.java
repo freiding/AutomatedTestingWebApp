@@ -1,12 +1,12 @@
 package core.pages;
 
 import core.data.Constants;
-import core.data.XpathList;
 import core.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,10 @@ import java.util.List;
 public class CommunitiesPage extends AbstractPage {
 
     private static final String PAGE_URL = "https://plus.google.com/communities";
-
+    @FindBy(xpath = ".//div[@role='list']//div[@class='UYd oEd']")
+    private WebElement joinedCommunitiesList;
+    @FindBy(xpath = ".//input[@label='Search for communities']")
+    private WebElement searchCommunitisField;
     public CommunitiesPage(WebDriver driver) {
         super(driver);
     }
@@ -40,9 +43,8 @@ public class CommunitiesPage extends AbstractPage {
     }
 
     public void openJoinedCommunity(String title) {
-        driver.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_JOINED_COMMUNITIES))
-                .findElement(By.linkText(title))
-                .click();
+        joinedCommunitiesList.findElement(By.linkText(title)).click();
+        Utils.waitInisibilityElement(driver, By.xpath(".//input[@label='Search for communities']"));
     }
 
     public void refreshPage() {
@@ -51,29 +53,32 @@ public class CommunitiesPage extends AbstractPage {
     }
 
     public void setSearchCommunityText(String title) {
-        driver.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_SEARCH_COMMUNITY_TEXTBOX))
-                .sendKeys(title + Keys.ENTER);
-        Utils.waitInisibilityElement(driver, By.xpath(XpathList.COMMUNITIES_PAGE_SEARCH_COMMUNITY_TEXTBOX));
+        searchCommunitisField.sendKeys(title + Keys.ENTER);
+        Utils.waitInisibilityElement(driver, By.xpath(".//input[@label='Search for communities']"));
     }
     /*************************************************************************************
      * *                                     Getters                                     **
      *************************************************************************************/
 
     public List<WebElement> getFoundedCommunitiesList() {
-        return driver.findElements(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITIES));
+        return driver.findElements(By.xpath(".//div[@role='article']"));
     }
 
     public List<WebElement> getJoinedCommunitiesList() {
-        return driver.findElements(By.xpath(XpathList.COMMUNITIES_PAGE_JOINED_COMMUNITIES));
+        return driver.findElements(By.xpath(".//div[@class='k9c mke Pic I8c JUKJAb']"));
     }
 
     public String getTitleFoundedCommunity(WebElement community) {
-        return community.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_TITLE))
+        return community.findElement(By.xpath("//div[@class='hDc']"))
                 .getText();
     }
 
+    public String getJoinToCommunityButtonText(WebElement community) {
+        return community.findElement(By.xpath(".//span[@guidedhelpid='community_join_button']")).getText();
+    }
+
     public String getTitleJoinedCommunity(WebElement community) {
-        return community.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_JOINED_COMMUNITY_TITLE))
+        return community.findElement(By.xpath("//a[@class='d-s ob w1d ATc']"))
                 .getText();
     }
 
@@ -82,12 +87,11 @@ public class CommunitiesPage extends AbstractPage {
      *************************************************************************************/
 
     public String pressJoinToCommunityButton(WebElement community) {
-        Utils.scrollToElement(driver, community);
         String communityTitle = getTitleFoundedCommunity(community);
-        WebElement joinButton = community.findElement(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON));
+        WebElement joinButton = community.findElement(By.xpath("//span[@guidedhelpid='community_join_button']"));
         joinButton.click();
         (new WebDriverWait(driver, Constants.TIMEOUT_ELEMENT_BE_CLICKABLE))
-                .until(ExpectedConditions.textToBe(By.xpath(XpathList.COMMUNITIES_PAGE_RECOMENDED_COMUNITY_JOIN_BUTTON), Constants.BUTTON_VIEW_COMMUNITY));
+                .until(ExpectedConditions.textToBePresentInElement(joinButton, "View"));
         return communityTitle;
     }
 

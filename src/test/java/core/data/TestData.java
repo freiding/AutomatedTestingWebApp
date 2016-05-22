@@ -12,7 +12,7 @@ public class TestData {
      **                           GUser data                                             **
      *************************************************************************************/
     public static final String USER_EMAIL = "user5684931@gmail.com";
-    public static final String USER_PASSWORD = "password477100321";
+    public static final String USER_PASSWORD = "pass477100321";
     public static final String USER_NAME = "Assistant";
     public static final String USER_SURNAME = "Quality";
 
@@ -35,7 +35,7 @@ public class TestData {
     public static final Time EVENT_TIME = new Time(23,59);
     public static final String EVENT_LOCATION = "New York";
     public static final String EVENT_DESCRIPTION = "New Year in New York";
-    public static final String EVENT_FOR_WHOM = new String("Yor circles");
+    public static final String EVENT_FOR_WHOM = "Your circles";
 
     /**************************************************************************************
      **                           GCollection data                                       **

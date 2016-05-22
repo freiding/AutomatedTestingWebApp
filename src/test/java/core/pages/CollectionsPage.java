@@ -1,6 +1,5 @@
 package core.pages;
 
-import core.data.XpathList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,13 +13,13 @@ public class CollectionsPage extends AbstractPage {
 
     public static final String PAGE_URL = "https://plus.google.com/collections";
 
-    @FindBy(xpath = XpathList.COLLECTIONS_PAGE_COLLECTION_CREATE_BUTTON)
+    @FindBy(xpath = ".//div[text()='CREATE A COLLECTION']")
     private WebElement createCollectionButton;
-    @FindBy(xpath = XpathList.COLLECTIONS_PAGE_COLLECTION_DIALOG_TITLE_TEXTFIELD)
+    @FindBy(xpath = ".//input[@aria-label='Name']")
     private WebElement collectionNameInput;
-    @FindBy(xpath = XpathList.COLLECTIONS_PAGE_COLLECTION_DIALOG_DESCRIPTION_TEXTFIELD)
+    @FindBy(xpath = ".//input[@aria-label='Tagline (optional)']")
     private WebElement collectionDescriptionInput;
-    @FindBy(xpath = XpathList.COLLECTIONS_PAGE_COLLECTION_DIALOG_CREATE_BUTTON)
+    @FindBy(xpath = ".//div[@class='G-q-ea']//div[text()='Create']")
     private WebElement collectionCreateButton;
 
     public CollectionsPage(WebDriver driver) {

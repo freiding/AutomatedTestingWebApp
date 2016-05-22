@@ -1,9 +1,6 @@
 package core.steps;
 
 import core.data.Constants;
-import core.data.XpathList;
-import core.utils.Utils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import core.data.TestData;
 import core.objects.GCollection;
@@ -77,13 +74,6 @@ public class Steps {
         boolean authorAgreement = startPage.getLastPostAuthor().contains(gPost.getAuthor().getName());
         boolean textAgreement = startPage.getLastPostText().equals(gPost.getText());
         return authorAgreement == textAgreement;
-    }
-
-    public void deleteLastPost() {
-        StartPage startPage = new StartPage(driver);
-        startPage.pressPostMenuButton();
-        startPage.pressPostMenuItem(Constants.ALIAS_MENU_ITEM_DELETE);
-        startPage.pressConfirmDeletePost();
     }
 
     /*************************************************************************************
@@ -197,10 +187,7 @@ public class Steps {
         CollectionPage collectionPage = new CollectionPage(driver);
         collectionPage.init();
         GPost lastPost = collectionPage.getLastCollecionPost();
-        if (lastPost.equals(gPost))
-            return true;
-        else
-            return false;
+        return (lastPost.equals(gPost));
     }
 
     public void deleteCollection() {
@@ -226,8 +213,14 @@ public class Steps {
         CommunitiesPage communitiesPage = new CommunitiesPage(driver);
         communitiesPage.init();
         communitiesPage.setSearchCommunityText(title);
+        String communityTitle = "";
         List<WebElement> communitiesList = communitiesPage.getFoundedCommunitiesList();
-        String communityTitle = communitiesPage.pressJoinToCommunityButton(communitiesList.get(1));
+        for (WebElement community : communitiesList) {
+            if (communitiesPage.getJoinToCommunityButtonText(community).equals("Join")) {
+                communityTitle = communitiesPage.pressJoinToCommunityButton(community);
+                break;
+            }
+        }
         communitiesPage.openPage();
         return communityTitle;
     }
@@ -288,16 +281,12 @@ public class Steps {
         circlesPage.setContactSearchText(user.getEmail());
         circlesPage.selectCircleToAdd(circleID);
         circlesPage.pressSaveContactAddingButton();
-        Utils.waitInisibilityElement(driver, By.xpath(XpathList.CIRCLES_PAGE_ALLERT_DIALOG_CIRCLES_LIST));
     }
 
     public boolean isContactAdded(int circleID) {
         CirclesPage circlesPage = new CirclesPage(driver);
         circlesPage.init();
-        if(circlesPage.getNumberContactsInCircle(circleID) > 0)
-            return true;
-        else
-            return false;
+        return (circlesPage.getNumberContactsInCircle(circleID) > 0);
     }
 
     public void removeContact(GUser user) {
