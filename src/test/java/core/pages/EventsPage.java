@@ -93,7 +93,6 @@ public class EventsPage extends AbstractPage {
      *************************************************************************************/
 
     public void pressCreateEventButton() {
-        Utils.waitInisibilityElement(driver, By.xpath(".//div[@guidedhelpid='events_create_event_button']"));
         driver.findElement(By.xpath(".//div[@guidedhelpid='events_create_event_button']")).click();
     }
 

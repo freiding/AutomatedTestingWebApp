@@ -34,12 +34,12 @@ public class GeneralTest {
         steps.closeDriver();
     }
 
-    @Test
+    //@Test
     public void signInTest() {
         Assert.assertEquals(true, steps.isLogged(gUser));
     }
 
-    @Test
+    //@Test
     public void addNewPost() {
         steps.openStartPage();
         GPost GPost = new GPost(
@@ -52,7 +52,7 @@ public class GeneralTest {
         Assert.assertEquals(true, actualResult);
     }
 
-    @Test
+    //@Test
     public void searchTest() {
         steps.openSearchPage();
         steps.searchPosts(TestData.SEARCH_TEXT);
@@ -76,7 +76,7 @@ public class GeneralTest {
         Assert.assertEquals(true, actualResult);
     }
 
-    @Test
+    //@Test
     public void createCollectionTest() {
         steps.openCollectionsPage();
         GCollection gCollection = new GCollection(
@@ -90,7 +90,7 @@ public class GeneralTest {
         Assert.assertEquals(true, actualResult);
     }
 
-    @Test
+    //@Test
     public void addPostToCollectionTest() {
         GCollection gCollection = new GCollection(
                 TestData.COLLECTION_TITLE,
@@ -113,7 +113,7 @@ public class GeneralTest {
             Assert.fail(Constants.ERROR_MESSAGE_COLLECTION_NOT_CREATED);
     }
 
-    @Test
+    //@Test
     public void joinToCommunityTest() {
         steps.openCommunitiesPage();
         String joinedCommunityTitle = steps.joinToCommunity(TestData.SEARCH_COMMUNITY_TITLE);
@@ -123,7 +123,7 @@ public class GeneralTest {
         Assert.assertEquals(true, actualResult);
     }
 
-    @Test
+    //@Test
     public void createCircleTest() {
         steps.openCirlesPage();
         steps.createCirlce(TestData.NEW_CIRCLE_TITLE);
@@ -132,7 +132,7 @@ public class GeneralTest {
         Assert.assertEquals(true, actualResult);
     }
 
-    @Test
+    //@Test
     public void addContactToCircleTest() {
         GUser user = new GUser(
                 TestData.TEST_USER_NAME,
