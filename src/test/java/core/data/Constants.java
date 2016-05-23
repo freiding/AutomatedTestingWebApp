@@ -14,7 +14,7 @@ public class Constants {
     public static final int TIMEOUT_VISIBILITY_OF = 20;
     public static final int TIMEOUT_INVISIBILITY_OF = 30;
     public static final int TIMEOUT_PAGELOAD = 60;
-    public static final int TIMEOUT_IMPLICITY_WAIT = 20;
+    public static final int TIMEOUT_IMPLICITY_WAIT = 15;
 
 
     public static final String EMPTY_STRING = "";
